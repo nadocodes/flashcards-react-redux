@@ -20,7 +20,12 @@ export default function NewTopicForm() {
 		}
 
 		// dispatch your add topic action here
-		dispatch(addTopic({ id: uniqueId, name, icon }));
+		dispatch(
+			addTopic({ 
+				id: uniqueId, 
+				name, icon, 
+				quizIds: []
+			}));
 		navigate(ROUTES.topicsRoute());
 	};
 
