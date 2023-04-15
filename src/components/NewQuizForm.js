@@ -13,7 +13,6 @@ export default function NewQuizForm() {
 	const [topicId, setTopicId] = useState("");
 	const navigate = useNavigate();
 	const topics = useSelector(selectTopics);
-	const uniqueId = uuidv4();
 	const dispatch = useDispatch();
 
 	const handleSubmit = (e) => {
@@ -25,7 +24,7 @@ export default function NewQuizForm() {
 		const cardIds = [];
 
 		cards.forEach((card) => {
-			let cardId = uniqueId;
+			let cardId = uuidv4();
 			cardIds.push(cardId);
 			dispatch(addCard({ ...card, id: cardId }));
 		});
@@ -34,7 +33,7 @@ export default function NewQuizForm() {
 		// create the new quiz here
 		dispatch(
 			addQuizThunk({ 
-				id: uniqueId, 
+				id: uuidv4(), 
 				name, 
 				topicId, 
 				cardIds

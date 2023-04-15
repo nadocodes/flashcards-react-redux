@@ -10,7 +10,6 @@ export default function NewTopicForm() {
 	const [name, setName] = useState("");
 	const [icon, setIcon] = useState("");
 	const navigate = useNavigate();
-	const uniqueId = uuidv4();
 	const dispatch = useDispatch();
 
 	const handleSubmit = (e) => {
@@ -22,7 +21,7 @@ export default function NewTopicForm() {
 		// dispatch your add topic action here
 		dispatch(
 			addTopic({ 
-				id: uniqueId, 
+				id: uuidv4(), 
 				name, icon, 
 				quizIds: []
 			}));
